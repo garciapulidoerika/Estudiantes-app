@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UFT-8">
+        <title>Lista de estudiantes</title>
+    </head>
+
+    <body>
+        <h1>Lista de estudiantes:</h1>
+        <ul>
+            {% for estudiante in estudiantes %}
+            <li><a href="{{estudiante.id}}">{{estudiante.nombre}}</a></li>
+            {% endfor %}
+        </ul>
+       
+        <h2>Agregar nuevo</h2>
+        <form method="POST" action="/estudiantes/">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for='nombre'>Nombre</label>
+                <input type="text" class="form-control" name="nombre" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for='direccion'>Direccion</label>
+                <input type="text" class="form-control" name="direccion" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for='telefono'>Telefono</label>
+                <input type="text" class="form-control" name="telefono" placeholder="">
+            </div>
+            <div class="form-group">
+                <label for='correo'>Correo</label>
+                <input type="text" class="form-control" name="correo" placeholder="">
+            </div>
+
+            <div class="text-right">
+                <button type="submit"> Crear estudiante </button> 
+            </div>
+
+        </form>
+
+    </body>
+</html>

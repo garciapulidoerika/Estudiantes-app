@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UFT-8">
+        <title>Lista de Clases</title>
+    </head>
+
+    <body>
+        <h1>Lista de clases:</h1>
+        <ul>
+            {% for clase in clases %}
+            <li><a href="{{clase.id}}">{{clase.Materia}}</a></li>
+            {% endfor %}
+        </ul>
+       
+        <h2>Agregar nueva clase</h2>
+        <form method="POST" action="/clases/">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for='Materia'>Materia</label>
+                <input type="text" class="form-control" name="Materia" placeholder="">
+            </div>
+            <div class="text-right">
+                <button type="submit"> Agregar materia </button> 
+            </div>
+        </form>
+
+    </body>
+</html>
